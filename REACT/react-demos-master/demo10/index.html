@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+  <h1>样式的写法:</h1>
+  1写组件内的行内样式需要双层花括号，外层的花括号表示内层的花括号是表倒是，内层的花括号表示传入的表达式是一个Json数据格式，中间用逗号隔开。有-的属性，例如font-size需要转换成驼峰是写法;<br>
+  2.如果希望样式可以重用的话，我们可以将样式写在一个单独的JS文件中，通过外部引入的方式，使用的时候直接引入外部文件，通过js的方式，直接将需要去用的属性值直接添加到组件中的双花括号中；<br>
+  3.将组建样式设置为组件的属性，通过THIS指向组件对象，然后找到组件对象下的样式属性，比ANGULAR好理解，逻辑和方法上和JS基本一致。涉及到作用域，可以通过this.组件属性，来操作。<br>
+    <div id="example"></div>
+    <script type="text/babel">
+      var Hello = React.createClass({
+        getInitialState: function () {
+          return {
+            opacity: 1.0
+          };
+        },
+
+        componentDidMount: function () {
+          this.timer = setInterval(function () {
+            var opacity = this.state.opacity;
+            opacity -= .05;
+            if (opacity < 0.1) {
+              opacity = 1.0;
+            }
+            this.setState({
+              opacity: opacity
+            });
+          }.bind(this), 100);
+        },
+
+        render: function () {
+          return (
+            <div style={{opacity: this.state.opacity}}>
+              Hello {this.props.name}
+            </div>
+          );
+        }
+      });
+
+      ReactDOM.render(
+        <Hello name="world"/>,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>

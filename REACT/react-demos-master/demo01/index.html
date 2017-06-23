@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../build/react.js"></script>//这个文件是核心库必须引入
+    <script src="../build/react-dom.js"></script>//渲染页面的，也是必须引入的
+    <script src="../build/browser.min.js"></script>scriptreact不是JS语法，是react独有的JSX语法，浏览qi并不识别，通过这个软件使浏览器可以正常解析react文件。
+  </head>
+  <body>
+  react性能特别高，主要原因是react框架提出来一个概念叫做虚拟Dom，通过react的虚拟dom可以让我们做到加载页面仅仅只渲染一次。也就是说在我把我的react文件添加到页面中也就渲染了一次，这样大大的提升了性能。
+  什么事虚拟DOM等于模拟浏览器的dom操作，不是在浏览器中模拟。而是在react文件中模拟一次DOM操作，再一次性插入到页面中。<br>例子如下：
+    <div id="example"></div>  <h2>运用'script type=‘text/babel’>'是写react的第一步！
+    body基本不含有标签基本上都是通过react构建出来的</h2>
+    <script type="text/babel">
+
+      ReactDOM.render(
+        <h1>Hello, world!</h1>,
+        document.getElementById('example')
+      );
+      var a={}
+      ReactCleartClass
+    </script>
+  </body>
+</html>
